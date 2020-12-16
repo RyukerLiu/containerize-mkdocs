@@ -1,39 +1,16 @@
-# User Guide With MkDocs
+# Containerize Mkdocs
+## Start Mkdocs Server
 
-Already converted AsciiDoc file to Markdown.
-
-With Markdown file have more online editor support.
-
-[Reference](https://gist.github.com/cheungnj/38becf045654119f96c87db829f1be8e)
-
-Convert Process
-``` bash
-# Conver to docbook will output UserGuide_zh.xml
-asciidoctor -b docbook UserGuide_zh.txt
-
-# Use --wrap=none to prevent Pandoc inserted hard line breaks at 72 characters.
-pandoc -f docbook -t gfm --wrap=none UserGuide_zh.xml -o UserGuide_zh.md
-```
-
-
-## Install
-
-`pip install mkdocs`
-
-## Start Preview Dev Server
-
-At `./my-project` level
-
-```bash
-cd my-project
-mkdocs serve
-```
+`docker-compose up`
 
 Server at: http://127.0.0.1:8000/
 
+- Change Port
+
+Change the PORT variable in `.env`
 ## Build Html
 
-At `./my-project` level
+`docker-compose run web mkdocs build`
 
 ```bash
 mkdocs build
